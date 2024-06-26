@@ -1,0 +1,84 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Sign-Up Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="signup-box">
+            <h2>Sign Up</h2>
+            <div>
+                <!-- <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="semail" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                    <p>Already have an account <a href="signin.html">Login now</a></p>
+                </div> ***
+                <div class="input-group">
+                    <label for="email">Phone</label>
+                    <input type="number" id="phone" name="phone">
+                    <p>Already have an account <a href="signin.html">Login now</a></p>
+                    <button id="signUp-btn" type="submit" class="signup-btn">Sign Up</button>
+                </div>
+                <div class="input-group">
+                    <label for="email">Otp</label>
+                    <input id="otp" type="number">
+                    <button id="otpVerify" type="submit" class="signup-btn">Verify</button>
+                </div>
+                <div id="recaptcha-container"></div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="signup.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Sign-Up Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="signup-box">
+            <h2>Sign Up</h2>
+            <form>
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="input-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+                <div>
+                    <p>Already have an account? <a href="./signin.html">Sign now</a></p>
+                </div>
+                <button type="submit" class="signup-btn">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
