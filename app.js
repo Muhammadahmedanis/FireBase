@@ -1,46 +1,40 @@
-// import { auth, onAuthStateChanged, signOut, sendEmailVerification } from "./firebase.js";
+import {auth, onAuthStateChanged, signOut} from './firebase.js'
 
-// let email = document.getElementById("email")
-// let name = document.getElementById("nam")
-// let mainContent = document.getElementById("main-content")
-// let loader = document.getElementById("loader")
+let loader = document.getElementById("loader");
+let content = document.getElementById("showName");
 
-
-// onAuthStateChanged(auth, (user) => {
-//   if (user) {
-//     sendEmailVerification(auth.currentUser)
-//     .then(() => {
-//       console.log("Email sent");
-//     });
-//     if(location.pathname !== "/profile.html"){
-//       location.href = "profile.html";
-//     }
-//     loader.style.display = "none";
-//     mainContent.style.display = "block";
-//     email.innerHTML = user.email; 
-//     name.innerHTML = user.email.slice(0, user.email.indexOf("@"));
-//     console.log("login:-",user);
-//   } else {
-//     console.log("not login");
-//     if(location.pathname !== "/signin.html" && location.pathname !== "/index.html"){
-//       location.href = "signin.html";
-//     }
-//   }
-// });
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        if(location.pathname !== "/profile.html")
+            {
+                location.href = "profile.html";
+            }
+        loader.style.display = "none";
+        content.style.display = "block";
+        console.log("login:-",user);
+        showName.innerHTML = user.email ? user.email.slice(0, user.email.indexOf("@")): "not found";
+    }
+    else{
+        if(location.pathname !== "/index.html" && location.pathname !== "/signin.html" && location.pathname !== "phone.html")
+            {
+                location.href == "signin.html";
+            }
+            console.log("Not login");
+    }
+  });
 
 
-// let logout = document.getElementById("logOut-btn");
-// logout && logout.addEventListener("click", () => {
-//   signOut(auth).then(() => {
-//     console.log("Sign out");
-//     location.href = "index.html"
-//   }).catch((error) => {
-//     console.log(error);
-//   });
-// })
+const logOut = () => {
+    signOut(auth).then(() => {
+        console.log("Sign Out");
+        location.href = 'signin.html';
+      }).catch((error) => {
+        console.log(error);
+      });
+}  
 
-
-
+let logoutBtn = document.getElementById("logOutBtn");
+logoutBtn && logoutBtn.addEventListener("click", logOut);
 
 
 

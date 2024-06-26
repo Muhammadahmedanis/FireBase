@@ -1,18 +1,36 @@
-// import {auth, signInWithEmailAndPassword} from "./firebase.js"
+import {auth, signInWithEmailAndPassword, sendEmailVerification  } from './firebase.js'
 
-// let signIn = document.getElementById("signIn-btn");
-// signIn.addEventListener("click", () => {
-//     let getEmail = document.getElementById("semail");
-//     let getPass = document.getElementById("spassword");
-//     signInWithEmailAndPassword(auth, getEmail.value, getPass.value)
-//     .then((userCredential) => {
-//       const user = userCredential.user;
-//       console.log("signin:-", user);
-//       location.href = 'profile.html'
-//     })
-//   .catch((error) => {
-//     console.log(error);  
-//   });
-//   getEmail.value = '';
-//   getPass.value  = '';
-// })  
+const signIn = () => {
+    let signinEmail = document.getElementById("signinEmail");
+    let signinPassword = document.getElementById("signinPassword");
+
+    signInWithEmailAndPassword(auth, signinEmail.value, signinPassword.value)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log("Signin:-", user);
+    sendEmailVerification(auth.currentUser)
+    .then(() => {
+      console.log("Email sent:-", user.emailVerified);
+      if(user.emailVerified){
+        location.href = "profile.html";
+        console.log(user.emailVerified);
+      }
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log("Error:-", error);
+  });
+  
+  signinEmail.value = '';
+  signinPassword.value = '';
+  
+});
+
+}
+
+let signinBtn = document.getElementById("signinBtn");
+signinBtn.addEventListener("click", signIn);
+
+

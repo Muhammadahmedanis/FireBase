@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Sign-Up Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="signup-box">
+            <h2>Sign Up</h2>
+            <div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" id="signupEmail" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="signupPassword" name="password" required>
+                </div>
+                <div>
+                    <p>Already have an account? <a href="./signin.html">Signin now</a></p>
+                </div>
+                <!-- <div class="input-group">
+                    <label>Confirm Password</label>
+                    <input type="password" id="signupConfirm-password" name="confirm-password" required>
+                </div> -->
+                <button id="signupBtn" type="submit" class="signup-btn">Sign Up</button>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="signup.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,47 +1,25 @@
-// import {auth, createUserWithEmailAndPassword, RecaptchaVerifier, signInWithPhoneNumber} from './firebase.js'
+import {auth, createUserWithEmailAndPassword} from'./firebase.js'
 
-// // let signUp = document.getElementById("signUp-btn");
-// // signUp.addEventListener("click", () => {
-// //     let getEmail = document.getElementById("email");
-// //     let getPass = document.getElementById("password");
-// // createUserWithEmailAndPassword(auth, getEmail.value, getPass.value)
-// //   .then((userCredential) => {
-// //     const user = userCredential.user;
-// //     console.log(user);
-// //         location.href = "signin.html"
-// //   })
-// //   .catch((error) => {
-// //     console.log(error);  
-// //   });
-// //   getEmail.value = '';
-// //   getPass.value  = '';
-// // })  
+// let signupConfirmPassword = document.getElementById("signupConfirm-password");
+const signUp = () => {
+    let signupEmail = document.getElementById("signupEmail");
+    let signupPassword = document.getElementById("signupPassword");
+    createUserWithEmailAndPassword(auth, signupEmail.value, signupPassword.value)
+    .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    console.log("SignUp:-", user);
+    location.href = "./signin.html"
+  })
+  .catch((error) => {
+    console.log("Error:-", error);
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+  signupEmail.value = '';
+  signupPassword.value = '';
+  // signupConfirmPassword.value = '';
+}
 
-
-
-// let confirmation;
-// let signUp = document.getElementById("signUp-btn");
-// signUp.addEventListener("click", () => {
-//             const phone = document.getElementById("phone");
-//             window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {});
-//             const appVerifier = window.recaptchaVerifier;
-//             console.log("phone:-", phone.value);
-//             signInWithPhoneNumber(auth, `+${phone.value}`, appVerifier)
-//             .then((confirmationResult) => {
-//                 console.log("sms sent");
-//                 confirmation = confirmationResult;
-//             }).catch((error) => {
-//                 console.log(error);
-//             });
-//       });
-
-// let otpVerify = document.getElementById("otpVerify");
-// const otp = document.getElementById("otp");
-// otpVerify.addEventListener("click", () => {
-//     confirmation.confirm(otp.value).then((result) => {
-//         const user = result.user;
-//         console.log("user:-", user);
-//       }).catch((error) => {
-//         console.log(error);
-//       });
-// })
+let signupBtn = document.getElementById("signupBtn");
+signupBtn.addEventListener("click", signUp);
