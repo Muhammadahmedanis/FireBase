@@ -8,7 +8,7 @@ let phone = () => {
     const appVerifier = window.recaptchaVerifier;
     signInWithPhoneNumber(auth, `+${phoneNum.value}`, appVerifier)
     .then((confirmationResult) => {
-        console.log("sms sent");
+        console.log("sms sent to: ", phoneNum.value);
       confirmation = confirmationResult;
     }).catch((error) => {
         console.log(error);

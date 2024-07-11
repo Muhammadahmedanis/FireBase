@@ -1,4 +1,4 @@
-import {auth, createUserWithEmailAndPassword, googleProvider, GoogleAuthProvider, signInWithPopup} from'./firebase.js'
+import {auth, createUserWithEmailAndPassword} from'./firebase.js'
 
 const signUp = () => {
     let signupEmail = document.getElementById("signupEmail");
@@ -25,44 +25,19 @@ if(signupBtn){
 }
 
 
-let signGoogle = () => {
-  signInWithPopup(auth, googleProvider)
-  .then((result) => {
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    const user = result.user;
-    console.log("userWithG". user);
-  }).catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    const email = error.customData.email;
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    console.log("error", );
-  });
+// let signFacebook = () => {
+//   signInWithPopup(auth, provider)
+//   .then((result) => {
+//     const user = result.user;
+//     const credential = FacebookAuthProvider.credentialFromResult(result);
+//     const accessToken = credential.accessToken;
 
-}
-
-let signinwithGoogle = document.getElementById("signinwithGoogle");
-if(signinwithGoogle){
-  signinwithGoogle.addEventListener("click", signGoogle)
-}
-
-
-
-
-let signFacebook = () => {
-  signInWithPopup(auth, provider)
-  .then((result) => {
-    const user = result.user;
-    const credential = FacebookAuthProvider.credentialFromResult(result);
-    const accessToken = credential.accessToken;
-
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    const email = error.customData.email;
-    const credential = FacebookAuthProvider.credentialFromError(error);
-    console.log("error");
-  });
-}
+//   })
+//   .catch((error) => {
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//     const email = error.customData.email;
+//     const credential = FacebookAuthProvider.credentialFromError(error);
+//     console.log("error");
+//   });
+// }
