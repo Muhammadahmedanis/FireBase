@@ -12,7 +12,8 @@ onAuthStateChanged(auth, (user) => {
         loader.style.display = "none";
         content.style.display = "block";
         console.log("login:-",user);
-        showName.innerHTML = user.email ? user.email.slice(0, user.email.indexOf("@")): "not found";
+        // content.value = user.email ? user.email.slice(0, user.email.indexOf("@")): "not found";
+        // content.value = user.email ? user.email: "not found";
     }
     else{
         if(location.pathname !== "/index.html" && location.pathname !== "/signin.html" && location.pathname !== "phone.html")
@@ -22,7 +23,6 @@ onAuthStateChanged(auth, (user) => {
             console.log("Not login");
     }
   });
-
 
 const logOut = () => {
     signOut(auth).then(() => {

@@ -1,5 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendEmailVerification,  RecaptchaVerifier, signInWithPhoneNumber, GoogleAuthProvider, signInWithPopup} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import { getFirestore, doc, setDoc, collection, addDoc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
 const firebaseConfig = {
     apiKey: "AIzaSyDSH5TdMEqmLuS17VzjIlkXU8Xn5MFAyDQ",
     authDomain: "e-commerce-ui-fcf2c.firebaseapp.com",
@@ -17,6 +20,7 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
+const db = getFirestore(app);
 
 export {
     auth, 
@@ -30,4 +34,11 @@ export {
     googleProvider,
     signInWithPopup,
     GoogleAuthProvider,
+    db,
+    doc, 
+    setDoc,
+    collection, 
+    addDoc,
+    getDoc,
+    updateDoc,
 }
